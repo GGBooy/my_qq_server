@@ -1,7 +1,8 @@
 package logic
 
 import (
-	"fmt"
+	"log"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,21 +16,14 @@ func ZhuceHandler(c *gin.Context) {
 		QqSex:      c.DefaultPostForm("qquser.qqSex", ""),
 		QqAddress:  c.DefaultPostForm("qquser.qqAddress", ""),
 		QqMark:     c.DefaultPostForm("qquser.qqMark", ""),
-		QqStatu:    c.DefaultPostForm("qquser.qqStatu", ""),
+		QqStatu:    0,
 		QqZhanghao: c.DefaultPostForm("qquser.qqZhanghao", ""),
 	}
-	if db == nil {
-		fmt.Println("HELL NO!!")
-	}
 
-	// temp := qquser{}
-	// db.First(&temp)
-	// fmt.Println(temp)
-	// db1 := da.GetDB()
-	// if db1 == nil {
-	// 	fmt.Println("HELL NO NONONOONON!!")
-	// }
+	status, _ := strconv.Atoi(c.DefaultPostForm("qquser.qqStatu", ""))
+	qu.QqStatu = status
+
 	db.Create(&qu)
 
-	fmt.Println(qu)
+	log.Println("\n--ZHUCE: ", qu)
 }

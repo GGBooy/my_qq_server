@@ -8,6 +8,6 @@ type qquser struct {
 	QqSex      string
 	QqAddress  string
 	QqMark     string
-	QqStatu    string
+	QqStatu    int
 	QqZhanghao string
 }
