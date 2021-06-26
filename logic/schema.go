@@ -1,5 +1,6 @@
 package logic
 
+//test
 type qquser struct {
 	QqTouxiang string
 	QqPhone    string
