@@ -6,33 +6,30 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// TODO
-// AUTO REGISTER(OPEN-CLOSE PRINCIPLE)
-
-type qquser struct {
-	qqTouxiang string
-	qqPhone    string
-	qqName     string
-	qqMima     string
-	qqSex      string
-	qqAddress  string
-	qqMark     string
-	qqStatu    string
-	qqZhanghao string
-}
-
 func ZhuceHandler(c *gin.Context) {
 	qu := qquser{
-		qqTouxiang: c.DefaultPostForm("qquser.qqTouxiang", ""),
-		qqPhone:    c.DefaultPostForm("qquser.qqPhone", ""),
-		qqName:     c.DefaultPostForm("qquser.qqName", ""),
-		qqMima:     c.DefaultPostForm("qquser.qqMima", ""),
-		qqSex:      c.DefaultPostForm("qquser.qqSex", ""),
-		qqAddress:  c.DefaultPostForm("qquser.qqAddress", ""),
-		qqMark:     c.DefaultPostForm("qquser.qqMark", ""),
-		qqStatu:    c.DefaultPostForm("qquser.qqStatu", ""),
-		qqZhanghao: c.DefaultPostForm("qquser.qqZhanghao", ""),
+		QqTouxiang: c.DefaultPostForm("qquser.qqTouxiang", ""),
+		QqPhone:    c.DefaultPostForm("qquser.qqPhone", ""),
+		QqName:     c.DefaultPostForm("qquser.qqName", ""),
+		QqMima:     c.DefaultPostForm("qquser.qqMima", ""),
+		QqSex:      c.DefaultPostForm("qquser.qqSex", ""),
+		QqAddress:  c.DefaultPostForm("qquser.qqAddress", ""),
+		QqMark:     c.DefaultPostForm("qquser.qqMark", ""),
+		QqStatu:    c.DefaultPostForm("qquser.qqStatu", ""),
+		QqZhanghao: c.DefaultPostForm("qquser.qqZhanghao", ""),
 	}
+	if db == nil {
+		fmt.Println("HELL NO!!")
+	}
+
+	// temp := qquser{}
+	// db.First(&temp)
+	// fmt.Println(temp)
+	// db1 := da.GetDB()
+	// if db1 == nil {
+	// 	fmt.Println("HELL NO NONONOONON!!")
+	// }
+	db.Create(&qu)
 
 	fmt.Println(qu)
 }

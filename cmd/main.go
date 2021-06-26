@@ -10,6 +10,7 @@ var (
 
 func main() {
 	r := server.RegisterHandle()
+	defer server.CloseDB()
 
 	r.Run(addr)
 }
