@@ -11,6 +11,8 @@ func RegisterHandle() *gin.Engine {
 
 	router.POST("Android_Service/QQ/zhuce", logic.ZhuceHandler)
 
+	router.GET("Android_Service/QQ/execute", logic.LoginHandler)
+
 	return router
 	//
 }

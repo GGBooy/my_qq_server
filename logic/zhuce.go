@@ -7,7 +7,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// "Android_Service/QQ/zhuce"
 func ZhuceHandler(c *gin.Context) {
+	type qquser qquserSignUp
 	qu := qquser{
 		QqTouxiang: c.DefaultPostForm("qquser.qqTouxiang", ""),
 		QqPhone:    c.DefaultPostForm("qquser.qqPhone", ""),
@@ -25,5 +27,5 @@ func ZhuceHandler(c *gin.Context) {
 
 	db.Create(&qu)
 
-	log.Println("\n--ZHUCE: ", qu)
+	log.Println("\n--ZHUCE: ", qu, "\n")
 }
