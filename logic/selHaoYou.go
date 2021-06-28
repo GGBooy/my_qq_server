@@ -21,12 +21,12 @@ func SelHaoYouHandler(c *gin.Context) {
 	result := db.Where("myqq_id = ?", qqId).Find(&hy)
 	if result.Error != nil {
 		log.Println("selHaoYou: ", err)
-		// content := gin.H{
-		// 	"result":     0,
-		// 	"applycount": 0,
-		// 	"qqhy":       nil,
-		// }
-		// c.JSON(http.StatusOK, content)
+		content := gin.H{
+			"result":     0,
+			"applycount": 0,
+			"qqhy":       nil,
+		}
+		c.JSON(http.StatusOK, content)
 	}
 
 	content := gin.H{

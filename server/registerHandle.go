@@ -15,6 +15,8 @@ func RegisterHandle() *gin.Engine {
 
 	router.POST("Android_Service/QQ/selhaoyou", logic.SelHaoYouHandler)
 
+	router.POST("Android_Service/QQ/selhaoyouOfmy", logic.SelhaoyouOfmy)
+
 	return router
 	//
 }

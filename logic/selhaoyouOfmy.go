@@ -1,18 +1,19 @@
 package logic
 
 import (
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 func SelhaoyouOfmy(c *gin.Context) {
-	qqId, err := strconv.Atoi(c.DefaultQuery("qqId", "0"))
+	qqId, err := strconv.Atoi(c.DefaultPostForm("qqId", "0"))
 	if err != nil {
 		log.Panicln("LOGIN_HANDLER: ", err)
 	}
-	log.Println("selhaoyouOfmy: qqId %d", qqId)
+	log.Println("selhaoyouOfmy: qqId: ", qqId)
 
 	// selQqhyOfmy
 	listcount := []qqhy{}
@@ -31,25 +32,42 @@ func SelhaoyouOfmy(c *gin.Context) {
 		return
 	}
 
-	if len(list) != 0 {
-		hysqlist := []qqhy{}
-		for i := 0; i < len(list); i++ {
-			qqhyItem := qqhy{}
-			result = db.Find(&qqhyItem, "hy_id = ?", list[i].HyId)
-			if result.Error != nil {
-				resultfail(c, result.Error)
-				return
-			}
-			hysqlist = append(hysqlist, qqhyItem)
+	// if len(list) != 0 {
+	// 	hysqlist := []qqhy{}
+	// 	for i := 0; i < len(list); i++ {
+	// 		qqhyItem := qqhy{}
+	// 		result = db.Find(&qqhyItem, "hy_id = ?", list[i].HyId)
+	// 		if result.Error != nil {
+	// 			resultfail(c, result.Error)
+	// 			return
+	// 		}
+	// 		hysqlist = append(hysqlist, qqhyItem)
+	// 	}
+	// 	c.JSON(http.StatusOK, gin.H{
+	// 		"result":     1,
+	// 		"qqhy":       hysqlist,
+	// 		"applycount": len(listcount),
+	// 	})
+	// } else {
+	// 	resultfail(c, nil)
+	// }
+
+	hysqlist := []qqhy{}
+	for i := 0; i < len(list); i++ {
+		qqhyItem := qqhy{}
+		result = db.Find(&qqhyItem, "hy_id = ?", list[i].HyId)
+		if result.Error != nil {
+			resultfail(c, result.Error)
+			return
 		}
-		c.JSON(http.StatusOK, gin.H{
-			"result":     1,
-			"qqhy":       hysqlist,
-			"applycount": len(listcount),
-		})
-	} else {
-		resultfail(c, nil)
+		hysqlist = append(hysqlist, qqhyItem)
 	}
+	c.JSON(http.StatusOK, gin.H{
+		"result":     1,
+		"qqhy":       hysqlist,
+		"applycount": len(listcount),
+	})
+
 }
 
 func resultfail(c *gin.Context, err error) {
