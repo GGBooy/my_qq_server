@@ -2,67 +2,69 @@ package logic
 
 // the qquer used in sign up
 type qquserSignUp struct {
-	QqTouxiang string
-	QqPhone    string
-	QqName     string
-	QqMima     string
-	QqSex      string
-	QqAddress  string
-	QqMark     string
-	QqStatu    int
-	QqZhanghao string
+	QqTouxiang string `json:"qqTouxiang"`
+	QqPhone    string `json:"qqPhone"`
+	QqName     string `json:"qqName"`
+	QqMima     string `json:"qqMima"`
+	QqSex      string `json:"qqSex"`
+	QqAddress  string `json:"qqAddress"`
+	QqMark     string `json:"qqMark"`
+	QqStatu    int    `json:"qqStatu"`
+	QqZhanghao string `json:"qqZhanghao"`
 }
 
 // the qquser in the db
 type qquserInDB struct {
 	// qquserData
-	QqTouxiang string
-	QqPhone    string
-	QqName     string
-	QqMima     string
-	QqSex      string
-	QqAddress  string
-	QqMark     string
-	QqStatu    int64
-	QqZhanghao string
+	QqTouxiang string `json:"qqTouxiang"`
+	QqPhone    string `json:"qqPhone"`
+	QqName     string `json:"qqName"`
+	QqMima     string `json:"qqMima"`
+	QqSex      string `json:"qqSex"`
+	QqAddress  string `json:"qqAddress"`
+	QqMark     string `json:"qqMark"`
+	QqStatu    int    `json:"qqStatu"`
+	QqZhanghao string `json:"qqZhanghao"`
 	// id - the primary key
-	QqId int64
+	QqId int `json:"qqId"`
 }
 
 // the qquser in the frontend has two more fields
 type qquserLoginReply struct {
 	// qquserData
-	QqTouxiang string
-	QqPhone    string
-	QqName     string
-	QqMima     string
-	QqSex      string
-	QqAddress  string
-	QqMark     string
-	QqStatu    int64
-	QqZhanghao string
+	QqTouxiang string `json:"qqTouxiang"`
+	QqPhone    string `json:"qqPhone"`
+	QqName     string `json:"qqName"`
+	QqMima     string `json:"qqMima"`
+	QqSex      string `json:"qqSex"`
+	QqAddress  string `json:"qqAddress"`
+	QqMark     string `json:"qqMark"`
+	QqStatu    int    `json:"qqStatu"`
+	QqZhanghao string `json:"qqZhanghao"`
 	// id - the primary key
-	QqId int64
+	QqId int `json:"qqId"`
 	// result - for reply purpose, 1 for ok
-	Result int
+	Result int `json:"result"`
 }
 
 // qqhy
 type qqhy struct {
-	HyId         int
-	MyqqId       int
-	MyqqZhanghao string
-	MyqqName     string
-	MyqqTouxiang string
-	MyqqMark     string
-	MyqqStatu    int
-	MyqqFengzu   int
-	HyqqId       int
-	HyqqZhanghao string
-	HyqqName     string
-	HyqqTouxiang string
-	HyqqMark     string
-	HyqqStatu    int
-	HyqqFengzu   int
-	HyStatu      int
+	HyId int `json:"hyId"`
+
+	MyqqId       int    `json:"myqqId"`
+	MyqqZhanghao string `json:"myqqZhanghao"`
+	MyqqName     string `json:"myqqName"`
+	MyqqTouxiang string `json:"myqqTouxiang"`
+	MyqqMark     string `json:"myqqMark"`
+	MyqqStatu    int    `json:"myqqStatu"`
+	MyqqFengzu   int    `json:"myqqFengzu"`
+
+	HyqqId       int    `json:"hyqqId"`
+	HyqqZhanghao string `json:"hyqqZhanghao"`
+	HyqqName     string `json:"hyqqName"`
+	HyqqTouxiang string `json:"hyqqTouxiang"`
+	HyqqMark     string `json:"hyqqMark"`
+	HyqqStatu    int    `json:"hyqqStatu"`
+	HyqqFengzu   int    `json:"hyqqFengzu"`
+	HyStatu      int    `json:"hyStatu"`
 }
