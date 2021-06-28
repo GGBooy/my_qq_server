@@ -11,7 +11,8 @@ import (
 func SelhaoyouOfmy(c *gin.Context) {
 	qqId, err := strconv.Atoi(c.DefaultPostForm("qqId", "0"))
 	if err != nil {
-		log.Panicln("LOGIN_HANDLER: ", err)
+		resultfail(c, err)
+		return
 	}
 	log.Println("selhaoyouOfmy: qqId: ", qqId)
 
@@ -53,20 +54,26 @@ func SelhaoyouOfmy(c *gin.Context) {
 	// }
 
 	hysqlist := []qqhy{}
-	for i := 0; i < len(list); i++ {
-		qqhyItem := qqhy{}
-		result = db.Find(&qqhyItem, "hy_id = ?", list[i].HyId)
-		if result.Error != nil {
-			resultfail(c, result.Error)
-			return
+	if len(list) != 0 {
+		for i := 0; i < len(list); i++ {
+			qqhyItem := qqhy{}
+			result = db.Find(&qqhyItem, "hy_id = ?", list[i].HyId)
+			if result.Error != nil {
+				resultfail(c, result.Error)
+				return
+			}
+			hysqlist = append(hysqlist, qqhyItem)
 		}
-		hysqlist = append(hysqlist, qqhyItem)
+		c.JSON(http.StatusOK, gin.H{
+			"result":     1,
+			"qqhy":       hysqlist,
+			"applycount": len(listcount),
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"result": 0,
+		})
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"result":     1,
-		"qqhy":       hysqlist,
-		"applycount": len(listcount),
-	})
 
 }
 
