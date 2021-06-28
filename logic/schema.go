@@ -49,20 +49,20 @@ type qquserLoginReply struct {
 
 // qqhy
 type qqhy struct {
-	hy_id         int
-	myqq_id       int
-	myqq_zhanghao string
-	myqq_name     string
-	myqq_touxiang string
-	myqq_mark     string
-	myqq_statu    int
-	myqq_fengzu   int
-	hyqq_id       int
-	hyqq_zhanghao string
-	hyqq_name     string
-	hyqq_touxiang string
-	hyqq_mark     string
-	hyqq_statu    int
-	hyqq_fengzu   int
-	hy_statu      int
+	HyId         int
+	MyqqId       int
+	MyqqZhanghao string
+	MyqqName     string
+	MyqqTouxiang string
+	MyqqMark     string
+	MyqqStatu    int
+	MyqqFengzu   int
+	HyqqId       int
+	HyqqZhanghao string
+	HyqqName     string
+	HyqqTouxiang string
+	HyqqMark     string
+	HyqqStatu    int
+	HyqqFengzu   int
+	HyStatu      int
 }

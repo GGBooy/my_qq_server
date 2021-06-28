@@ -16,7 +16,7 @@ func SelhaoyouOfmy(c *gin.Context) {
 
 	// selQqhyOfmy
 	listcount := []qqhy{}
-	result := db.Where(&qqhy{hy_id: qqId, hy_statu: 0}).Find(&listcount)
+	result := db.Where(&qqhy{HyId: qqId, HyStatu: 0}).Find(&listcount)
 	if result.Error != nil {
 		resultfail(c, result.Error)
 		return
@@ -35,7 +35,7 @@ func SelhaoyouOfmy(c *gin.Context) {
 		hysqlist := []qqhy{}
 		for i := 0; i < len(list); i++ {
 			qqhyItem := qqhy{}
-			result = db.Find(&qqhyItem, "hy_id = ?", list[i].hy_id)
+			result = db.Find(&qqhyItem, "hy_id = ?", list[i].HyId)
 			if result.Error != nil {
 				resultfail(c, result.Error)
 				return
