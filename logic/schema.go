@@ -49,7 +49,7 @@ type qquserLoginReply struct {
 
 // qqhy
 type qqhy struct {
-	HyId int `json:"hyId"`
+	HyId int `json:"hyId" gorm:"primary_key"`
 
 	MyqqId       int    `json:"myqqId"`
 	MyqqZhanghao string `json:"myqqZhanghao"`

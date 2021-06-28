@@ -18,7 +18,7 @@ func SelHaoYouHandler(c *gin.Context) {
 	}
 
 	hy := []qqhy{}
-	result := db.Where("myqq_id = ?", qqId).Find(&hy)
+	result := db.Where("(myqq_id = ? OR hyqq_id = ?) AND hy_statu = ?", qqId, qqId, 1).Find(&hy)
 	if result.Error != nil {
 		log.Println("selHaoYou: ", err)
 		content := gin.H{
@@ -31,7 +31,7 @@ func SelHaoYouHandler(c *gin.Context) {
 
 	content := gin.H{
 		"result":     1,
-		"applycount": 1, // TODO -- WHAT THE HELL IS THIS?
+		"applycount": 0, // TODO -- WHAT THE HELL IS THIS?
 		"qqhy":       hy,
 	}
 	c.JSON(http.StatusOK, content)

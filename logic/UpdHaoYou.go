@@ -1,15 +1,16 @@
 package logic
 
 import (
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 func UpdHaoYou(c *gin.Context) {
 	hyId := c.DefaultPostForm("hyId", "0")
-	hystatu, _ := strconv.Atoi(c.DefaultPostForm("hyId", "0"))
+	hystatu, _ := strconv.Atoi(c.DefaultPostForm("hystatu", "0"))
 	log.Printf("UpdHaoYou hyId:%s hystatu:%d\n", hyId, hystatu)
 
 	qqhys := qqhy{}
