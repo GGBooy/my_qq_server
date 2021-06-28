@@ -19,6 +19,8 @@ func RegisterHandle() *gin.Engine {
 
 	router.POST("Android_Service/QQ/seluserlist", logic.Seluserlist)
 
+	router.POST("Android_Service/QQ/selqquser", logic.Selqquser)
+
 	return router
 	//
 }
