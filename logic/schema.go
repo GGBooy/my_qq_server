@@ -43,6 +43,26 @@ type qquserLoginReply struct {
 	QqZhanghao string
 	// id - the primary key
 	QqId int64
-	// result - for reply purpose, 1 for ok
+	// result - for reply purpose 1 for ok
 	Result int
+}
+
+// qqhy
+type qqhy struct {
+	hy_id         int
+	myqq_id       int
+	myqq_zhanghao string
+	myqq_name     string
+	myqq_touxiang string
+	myqq_mark     string
+	myqq_statu    int
+	myqq_fengzu   int
+	hyqq_id       int
+	hyqq_zhanghao string
+	hyqq_name     string
+	hyqq_touxiang string
+	hyqq_mark     string
+	hyqq_statu    int
+	hyqq_fengzu   int
+	hy_statu      int
 }

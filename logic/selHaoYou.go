@@ -1,0 +1,34 @@
+package logic
+
+import (
+	"log"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
+)
+
+// "Android_Service/QQ/selhaoyou"
+func SelHaoYouHandler(c *gin.Context) {
+	qqId, err := strconv.Atoi(c.DefaultPostForm("qqId", ""))
+	if err != nil {
+		log.Println(err)
+
+		return
+	}
+
+	hy := []qqhy{}
+	result := db.Where("myqq_id = ?", qqId).Find(&hy)
+	if result.Error != nil {
+		log.Println("selHaoYou: ", err)
+	}
+
+	content := gin.H{
+		"result":     1,
+		"applycount": 1, // TODO -- WHAT THE HELL IS THIS?
+		"qqhy":       hy,
+	}
+	c.JSON(http.StatusOK, content)
+
+	log.Println("\n--selHaoYou", qqId, "\n")
+}

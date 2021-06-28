@@ -21,7 +21,7 @@ func LoginHandler(c *gin.Context) {
 
 	result := db.Where("qq_zhanghao = ?", zhanghao).Where("qq_mima = ?", mima).First(&qRes)
 	if result.Error != nil {
-		log.Println("login - 找不到记录")
+		log.Println("login :", err)
 		// send
 		c.JSON(http.StatusOK, gin.H{
 			"result":     0,
