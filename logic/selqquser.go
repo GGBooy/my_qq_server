@@ -18,7 +18,7 @@ func Selqquser(c *gin.Context) {
 		log.Println("selqquser ERROR")
 		log.Println(result.Error)
 		c.JSON(http.StatusOK, gin.H{
-			"result": 1,
+			"result": 0,
 		})
 		return
 	}
