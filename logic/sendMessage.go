@@ -1,11 +1,12 @@
 package logic
 
 import (
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 func SendMessage(c *gin.Context) {
@@ -45,16 +46,16 @@ func SendMessage(c *gin.Context) {
 		db.Save(&qmsg)
 	} else {
 		aqsmsg := qqshowmessage{
-			QqId:         msg.QqId,
-			QqZhanghao:   msg.QqZhanghao,
-			QqName:       msg.QqName,
-			QqTouxiang:   msg.QqTouxiang,
-			HyqqId:       msg.MJsid,
-			HyqqZhanghao: msg.MZhanghao,
-			HyqqName:     msg.MName,
-			HyqqTouxiang: msg.MTouxiang,
-			SmContent:    msg.MMessage,
-			SmDate:       time.Now(),
+			QqId:       msg.QqId,
+			QqZhanghao: msg.QqZhanghao,
+			QqName:     msg.QqName,
+			QqTouxiang: msg.QqTouxiang,
+			HyId:       msg.MJsid,
+			HyZhanghao: msg.MZhanghao,
+			HyName:     msg.MName,
+			HyTouxiang: msg.MTouxiang,
+			SmContent:  msg.MMessage,
+			SmDate:     time.Now(),
 		}
 		result = db.Create(&aqsmsg)
 		if result.Error != nil {

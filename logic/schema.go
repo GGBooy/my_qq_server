@@ -72,31 +72,36 @@ type qqhy struct {
 }
 
 type qqmessage struct {
-	MId        int       `json:"MId"`
-	QqId       int       `json:"qqId"`
-	QqZhanghao string    `json:"qqZhanghao"`
-	QqName     string    `json:"qqName"`
-	QqTouxiang string    `json:"qqTouxiang"`
-	MMessage   string    `json:"MMessage"`
-	MDate      time.Time `json:"MDate"`
-	MJsid      int       `json:"MJsid"`
-	MZhanghao  string    `json:"MZhanghao"`
-	MName      string    `json:"MName"`
-	MTouxiang  string    `json:"MTouxiang"`
-	MStatu     int       `json:"MStatu"`
-	result     int       `json:"result"`
+	MId int `json:"mId"`
+
+	QqId       int    `json:"qqId"`
+	QqZhanghao string `json:"qqZhanghao"`
+	QqName     string `json:"qqName"`
+	QqTouxiang string `json:"qqTouxiang"`
+
+	MMessage  string    `json:"mMessage"`
+	MDate     time.Time `json:"mDate"`
+	MJsid     int       `json:"mJsid"`
+	MZhanghao string    `json:"mZhanghao"`
+	MName     string    `json:"mName"`
+	MTouxiang string    `json:"mTouxiang"`
+	MStatu    int       `json:"mStatu"`
+	//Result     int       `json:"result"`
 }
 
 type qqshowmessage struct {
-	SmId         int       `json:"smId"`
-	QqId         int       `json:"qqId"`
-	QqZhanghao   string    `json:"qqZhanghao"`
-	QqName       string    `json:"qqName"`
-	QqTouxiang   string    `json:"qqTouxiang"`
-	HyqqId       int       `json:"hyqqId"`
-	HyqqZhanghao string    `json:"hyqqZhanghao"`
-	HyqqName     string    `json:"hyqqName"`
-	HyqqTouxiang string    `json:"hyqqTouxiang"`
-	SmContent    string    `json:"smContent"`
-	SmDate       time.Time `json:"smDate"`
+	SmId int `json:"sm_id"`
+
+	QqId       int    `json:"qq_id"`
+	QqZhanghao string `json:"qq_zhanghao"`
+	QqName     string `json:"qq_name"`
+	QqTouxiang string `json:"qq_touxiang"`
+
+	HyId       int    `json:"hy_id"`
+	HyZhanghao string `json:"hy_zhanghao"`
+	HyName     string `json:"hy_name"`
+	HyTouxiang string `json:"hy_touxiang"`
+
+	SmContent string    `json:"sm_content"`
+	SmDate    time.Time `json:"sm_date"`
 }
