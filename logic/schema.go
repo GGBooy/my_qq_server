@@ -1,5 +1,7 @@
 package logic
 
+import "time"
+
 // the qquer used in sign up
 type qquserSignUp struct {
 	QqTouxiang string `json:"qqTouxiang"`
@@ -67,4 +69,34 @@ type qqhy struct {
 	HyqqStatu    int    `json:"hyqqStatu"`
 	HyqqFengzu   int    `json:"hyqqFengzu"`
 	HyStatu      int    `json:"hyStatu"`
+}
+
+type qqmessage struct {
+	MId        int       `json:"MId"`
+	QqId       int       `json:"qqId"`
+	QqZhanghao string    `json:"qqZhanghao"`
+	QqName     string    `json:"qqName"`
+	QqTouxiang string    `json:"qqTouxiang"`
+	MMessage   string    `json:"MMessage"`
+	MDate      time.Time `json:"MDate"`
+	MJsid      int       `json:"MJsid"`
+	MZhanghao  string    `json:"MZhanghao"`
+	MName      string    `json:"MName"`
+	MTouxiang  string    `json:"MTouxiang"`
+	MStatu     int       `json:"MStatu"`
+	result     int       `json:"result"`
+}
+
+type qqshowmessage struct {
+	SmId         int       `json:"smId"`
+	QqId         int       `json:"qqId"`
+	QqZhanghao   string    `json:"qqZhanghao"`
+	QqName       string    `json:"qqName"`
+	QqTouxiang   string    `json:"qqTouxiang"`
+	HyqqId       int       `json:"hyqqId"`
+	HyqqZhanghao string    `json:"hyqqZhanghao"`
+	HyqqName     string    `json:"hyqqName"`
+	HyqqTouxiang string    `json:"hyqqTouxiang"`
+	SmContent    string    `json:"smContent"`
+	SmDate       time.Time `json:"smDate"`
 }
