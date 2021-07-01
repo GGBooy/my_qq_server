@@ -1,7 +1,5 @@
 package logic
 
-import "time"
-
 // the qquer used in sign up
 type qquserSignUp struct {
 	QqTouxiang string `json:"qqTouxiang"`
@@ -79,13 +77,13 @@ type qqmessage struct {
 	QqName     string `json:"qqName"`
 	QqTouxiang string `json:"qqTouxiang"`
 
-	MMessage  string    `json:"mMessage"`
-	MDate     time.Time `json:"mDate"`
-	MJsid     int       `json:"mJsid"`
-	MZhanghao string    `json:"mZhanghao"`
-	MName     string    `json:"mName"`
-	MTouxiang string    `json:"mTouxiang"`
-	MStatu    int       `json:"mStatu"`
+	MMessage  string `json:"mMessage"`
+	MDate     int64  `json:"mDate"`
+	MJsid     int    `json:"mJsid"`
+	MZhanghao string `json:"mZhanghao"`
+	MName     string `json:"mName"`
+	MTouxiang string `json:"mTouxiang"`
+	MStatu    int    `json:"mStatu"`
 	//Result     int       `json:"result"`
 }
 
@@ -102,6 +100,6 @@ type qqshowmessage struct {
 	HyName     string `json:"hy_name"`
 	HyTouxiang string `json:"hy_touxiang"`
 
-	SmContent string    `json:"sm_content"`
-	SmDate    time.Time `json:"sm_date"`
+	SmContent string `json:"sm_content"`
+	SmDate    int64  `json:"sm_date"`
 }

@@ -25,7 +25,7 @@ func SendMessage(c *gin.Context) {
 		MTouxiang:  c.PostForm("msg.MTouxiang"),
 		MStatu:     status,
 	}
-	msg.MDate = time.Now()
+	msg.MDate = time.Now().UnixNano() / 1e6
 	result := db.Create(&msg)
 	if result.Error != nil {
 		log.Println("sendMessage1 ERROR")
@@ -55,7 +55,7 @@ func SendMessage(c *gin.Context) {
 			HyName:     msg.MName,
 			HyTouxiang: msg.MTouxiang,
 			SmContent:  msg.MMessage,
-			SmDate:     time.Now(),
+			SmDate:     time.Now().UnixNano() / 1e6,
 		}
 		result = db.Create(&aqsmsg)
 		if result.Error != nil {
