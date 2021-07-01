@@ -26,6 +26,8 @@ func RegisterHandle() *gin.Engine {
 	router.POST("Android_Service/QQ/UpdHaoYou", logic.UpdHaoYou)
 
 	router.POST("Android_Service/QQ/sendMessage", logic.SendMessage)
+
+	router.POST("Android_Service/QQ/receiveMessage", logic.ReceiveMessage)
 	return router
 	//
 }
